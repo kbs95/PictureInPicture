@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "PictureInPicture"
+  s.name         = "PictureInPictureVC"
   s.version      = "1.0.0"
   s.summary      = "Picture in picture mode for UIViewController."
 
@@ -62,7 +62,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  s.platform     = :ios,"11.0"
+  s.platform     = :ios,"9.0"
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

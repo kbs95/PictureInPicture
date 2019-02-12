@@ -112,15 +112,29 @@ open class PictureViewController: UIViewController {
         view.addSubview(minimizeButton)
         view.addSubview(closeButton)
         
-        NSLayoutConstraint.activate([
-            minimizeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant:8),
-            minimizeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant:0),
-        ])
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                minimizeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant:8),
+                minimizeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant:0),
+                ])
+        } else {
+            NSLayoutConstraint.activate([
+                minimizeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant:8),
+                minimizeButton.topAnchor.constraint(equalTo: view.topAnchor,constant:5),
+                ])
+        }
         
-        NSLayoutConstraint.activate([
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant:-8),
-            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant:0),
-        ])
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant:-8),
+                closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant:0),
+                ])
+        } else {
+            NSLayoutConstraint.activate([
+                closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant:-8),
+                closeButton.topAnchor.constraint(equalTo: view.topAnchor,constant:5),
+                ])
+        }
         
         minimizeButton.addTarget(self, action: #selector(minimizeAction(sender:)), for: .touchUpInside)
         closeButton.addTarget(self, action: #selector(closeAction(sender:)), for: .touchUpInside)
@@ -133,10 +147,18 @@ open class PictureViewController: UIViewController {
     */
     
     private func startInstanceGrabTimer(){
-        instanceTimer = Timer.scheduledTimer(withTimeInterval: 1000, repeats: true, block: { (_) in
-            // holding self instance on purpose
-            let _ = self
-        })
+        if #available(iOS 10.0, *) {
+            instanceTimer = Timer.scheduledTimer(withTimeInterval: 1000, repeats: true, block: { (_) in
+                // holding self instance on purpose
+                let _ = self
+            })
+        } else {
+            instanceTimer = Timer.scheduledTimer(timeInterval: 1000, target: self, selector: #selector(instanceHolderMethod), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc private func instanceHolderMethod(){
+        let _ = self
     }
     
     /*
