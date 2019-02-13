@@ -58,4 +58,4 @@ run `pod install`
  # License
  MIT
 
-Feel free to fork and add pull requests for any new features.
+Feel free to fork and add pull requests for any new features **and don't forget to ⭐️ the repo**
