@@ -46,7 +46,16 @@ class yourViewController:PictureViewController{
      return false
  }
 ```
- # LICENSE
+
+# Installation
+Only cocoaPods supported for now.
+
+Add `pod 'PictureInPictureVC'` in your .podfile
+
+run `pod install`
+
+
+ # License
  MIT
 
 Feel free to fork and add pull requests for any new features.
