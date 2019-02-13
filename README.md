@@ -54,6 +54,12 @@ Add `pod 'PictureInPictureVC'` in your .podfile
 
 run `pod install`
 
+# Author
+Karanbir Singh - kbs950@gmail.com
+
+Instagram - i_am_karan_
+
+Snapchat - karanbir_s
 
  # License
  MIT
