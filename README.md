@@ -1,6 +1,14 @@
 # PictureInPictureVC
 A UiViewController class with feature of minimise and maximise, just like the picture in picture mode in AVPlayerViewController in iOS.
 
+![](pipVCReadme.gif)
+
+# Feartures
+- Minimize/Maximize and close button overlays on viewController (automatically hides after 2.5 secs)
+- After minimizing,the viewController can be moved around the screen using gestures
+- Don't worry 😉, when minimized, the view controller's instance is still in memory, so the state of the
+view controller will remain same, even after maximizing it again.
+
 # Usage
 - Create your viewController using storyboard or programatically.
 - Inherit the `PictureViewController`
@@ -27,7 +35,7 @@ class yourViewController:PictureViewController{
  // Close button
  self.customizeCloseButton(with title:String?,and image:UIImage?)
  ```
-- override properties
+- useful properties
 ```swift
  // override this property, if you want to navigate to root controller on minimize.
  open var popToRootController:Bool{
@@ -38,4 +46,7 @@ class yourViewController:PictureViewController{
      return false
  }
 ```
- 
+ # LICENSE
+ MIT
+
+Feel free to fork and add pull requests for any new features.
