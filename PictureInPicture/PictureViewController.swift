@@ -22,7 +22,7 @@ open class PictureViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Minimize", for: .normal)
-        button.setTitle("Maximize", for: .normal)
+        button.setTitle("Maximize", for: .selected)
         button.contentMode = .scaleToFill
         return button
     }()
